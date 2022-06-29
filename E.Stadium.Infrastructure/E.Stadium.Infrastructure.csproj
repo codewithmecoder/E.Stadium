@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\E.Stadium.Application\E.Stadium.Application.csproj" />
+    <ProjectReference Include="..\E.Stadium.Core\E.Stadium.Core.csproj" />
+  </ItemGroup>
+
 </Project>

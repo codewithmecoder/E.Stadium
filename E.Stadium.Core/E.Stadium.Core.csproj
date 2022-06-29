@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\E.Stadium.Abstraction\E.Stadium.Abstraction.csproj" />
+  </ItemGroup>
+
 </Project>

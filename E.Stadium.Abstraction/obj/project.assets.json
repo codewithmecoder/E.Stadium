@@ -8,24 +8,31 @@
     "net6.0": []
   },
   "packageFolders": {
-    "/home/sokcheanith/.nuget/packages/": {}
+    "C:\\Users\\HQ\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/sokcheanith/Documents/projects/E.Stadium/E.Stadium.Abstraction/E.Stadium.Abstraction.csproj",
+      "projectUniqueName": "C:\\Users\\HQ\\OneDrive\\Documents\\E.Stadium\\E.Stadium.Abstraction\\E.Stadium.Abstraction.csproj",
       "projectName": "E.Stadium.Abstraction",
-      "projectPath": "/home/sokcheanith/Documents/projects/E.Stadium/E.Stadium.Abstraction/E.Stadium.Abstraction.csproj",
-      "packagesPath": "/home/sokcheanith/.nuget/packages/",
-      "outputPath": "/home/sokcheanith/Documents/projects/E.Stadium/E.Stadium.Abstraction/obj/",
+      "projectPath": "C:\\Users\\HQ\\OneDrive\\Documents\\E.Stadium\\E.Stadium.Abstraction\\E.Stadium.Abstraction.csproj",
+      "packagesPath": "C:\\Users\\HQ\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\HQ\\OneDrive\\Documents\\E.Stadium\\E.Stadium.Abstraction\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "/home/sokcheanith/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\HQ\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -58,7 +65,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.301/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
       }
     }
   }
