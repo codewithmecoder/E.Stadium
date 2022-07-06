@@ -1,0 +1,15 @@
+C:\Users\HQ\OneDrive\Documents\E.Stadium\E.Stadium.Shared\bin\Debug\net6.0\E.Stadium.Shared.deps.json
+C:\Users\HQ\OneDrive\Documents\E.Stadium\E.Stadium.Shared\bin\Debug\net6.0\E.Stadium.Shared.dll
+C:\Users\HQ\OneDrive\Documents\E.Stadium\E.Stadium.Shared\bin\Debug\net6.0\E.Stadium.Shared.pdb
+C:\Users\HQ\OneDrive\Documents\E.Stadium\E.Stadium.Shared\bin\Debug\net6.0\E.Stadium.Abstraction.dll
+C:\Users\HQ\OneDrive\Documents\E.Stadium\E.Stadium.Shared\bin\Debug\net6.0\E.Stadium.Abstraction.pdb
+C:\Users\HQ\OneDrive\Documents\E.Stadium\E.Stadium.Shared\obj\Debug\net6.0\E.Stadium.Shared.csproj.AssemblyReference.cache
+C:\Users\HQ\OneDrive\Documents\E.Stadium\E.Stadium.Shared\obj\Debug\net6.0\E.Stadium.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HQ\OneDrive\Documents\E.Stadium\E.Stadium.Shared\obj\Debug\net6.0\E.Stadium.Shared.AssemblyInfoInputs.cache
+C:\Users\HQ\OneDrive\Documents\E.Stadium\E.Stadium.Shared\obj\Debug\net6.0\E.Stadium.Shared.AssemblyInfo.cs
+C:\Users\HQ\OneDrive\Documents\E.Stadium\E.Stadium.Shared\obj\Debug\net6.0\E.Stadium.Shared.csproj.CoreCompileInputs.cache
+C:\Users\HQ\OneDrive\Documents\E.Stadium\E.Stadium.Shared\obj\Debug\net6.0\E.Stadium.Shared.csproj.CopyComplete
+C:\Users\HQ\OneDrive\Documents\E.Stadium\E.Stadium.Shared\obj\Debug\net6.0\E.Stadium.Shared.dll
+C:\Users\HQ\OneDrive\Documents\E.Stadium\E.Stadium.Shared\obj\Debug\net6.0\refint\E.Stadium.Shared.dll
+C:\Users\HQ\OneDrive\Documents\E.Stadium\E.Stadium.Shared\obj\Debug\net6.0\E.Stadium.Shared.pdb
+C:\Users\HQ\OneDrive\Documents\E.Stadium\E.Stadium.Shared\obj\Debug\net6.0\ref\E.Stadium.Shared.dll

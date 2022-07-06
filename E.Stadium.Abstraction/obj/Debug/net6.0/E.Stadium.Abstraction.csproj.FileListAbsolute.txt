@@ -1,0 +1,12 @@
+C:\Users\HQ\OneDrive\Documents\E.Stadium\E.Stadium.Abstraction\bin\Debug\net6.0\E.Stadium.Abstraction.deps.json
+C:\Users\HQ\OneDrive\Documents\E.Stadium\E.Stadium.Abstraction\bin\Debug\net6.0\E.Stadium.Abstraction.dll
+C:\Users\HQ\OneDrive\Documents\E.Stadium\E.Stadium.Abstraction\bin\Debug\net6.0\E.Stadium.Abstraction.pdb
+C:\Users\HQ\OneDrive\Documents\E.Stadium\E.Stadium.Abstraction\obj\Debug\net6.0\E.Stadium.Abstraction.csproj.AssemblyReference.cache
+C:\Users\HQ\OneDrive\Documents\E.Stadium\E.Stadium.Abstraction\obj\Debug\net6.0\E.Stadium.Abstraction.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HQ\OneDrive\Documents\E.Stadium\E.Stadium.Abstraction\obj\Debug\net6.0\E.Stadium.Abstraction.AssemblyInfoInputs.cache
+C:\Users\HQ\OneDrive\Documents\E.Stadium\E.Stadium.Abstraction\obj\Debug\net6.0\E.Stadium.Abstraction.AssemblyInfo.cs
+C:\Users\HQ\OneDrive\Documents\E.Stadium\E.Stadium.Abstraction\obj\Debug\net6.0\E.Stadium.Abstraction.csproj.CoreCompileInputs.cache
+C:\Users\HQ\OneDrive\Documents\E.Stadium\E.Stadium.Abstraction\obj\Debug\net6.0\E.Stadium.Abstraction.dll
+C:\Users\HQ\OneDrive\Documents\E.Stadium\E.Stadium.Abstraction\obj\Debug\net6.0\refint\E.Stadium.Abstraction.dll
+C:\Users\HQ\OneDrive\Documents\E.Stadium\E.Stadium.Abstraction\obj\Debug\net6.0\E.Stadium.Abstraction.pdb
+C:\Users\HQ\OneDrive\Documents\E.Stadium\E.Stadium.Abstraction\obj\Debug\net6.0\ref\E.Stadium.Abstraction.dll
