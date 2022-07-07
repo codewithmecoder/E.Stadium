@@ -1,6 +1,5 @@
 ﻿using E.Stadium.Core.Dto.Users;
 using E.Stadium.Core.Entities.Users;
-using E.Stadium.Infrastructure.Postgres.User;
 
 namespace E.Stadium.Infrastructure.Postgres.User;
 

@@ -280,6 +280,9 @@
             "projectReferences": {
               "C:\\Users\\HQ\\OneDrive\\Documents\\E.Stadium\\E.Stadium.Abstraction\\E.Stadium.Abstraction.csproj": {
                 "projectPath": "C:\\Users\\HQ\\OneDrive\\Documents\\E.Stadium\\E.Stadium.Abstraction\\E.Stadium.Abstraction.csproj"
+              },
+              "C:\\Users\\HQ\\OneDrive\\Documents\\E.Stadium\\E.Stadium.Shared\\E.Stadium.Shared.csproj": {
+                "projectPath": "C:\\Users\\HQ\\OneDrive\\Documents\\E.Stadium\\E.Stadium.Shared\\E.Stadium.Shared.csproj"
               }
             }
           }

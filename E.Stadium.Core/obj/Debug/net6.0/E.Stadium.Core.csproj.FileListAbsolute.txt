@@ -13,3 +13,5 @@ C:\Users\HQ\OneDrive\Documents\E.Stadium\E.Stadium.Core\obj\Debug\net6.0\E.Stadi
 C:\Users\HQ\OneDrive\Documents\E.Stadium\E.Stadium.Core\obj\Debug\net6.0\refint\E.Stadium.Core.dll
 C:\Users\HQ\OneDrive\Documents\E.Stadium\E.Stadium.Core\obj\Debug\net6.0\E.Stadium.Core.pdb
 C:\Users\HQ\OneDrive\Documents\E.Stadium\E.Stadium.Core\obj\Debug\net6.0\ref\E.Stadium.Core.dll
+C:\Users\HQ\OneDrive\Documents\E.Stadium\E.Stadium.Core\bin\Debug\net6.0\E.Stadium.Shared.dll
+C:\Users\HQ\OneDrive\Documents\E.Stadium\E.Stadium.Core\bin\Debug\net6.0\E.Stadium.Shared.pdb

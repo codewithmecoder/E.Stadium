@@ -52,7 +52,7 @@ public class PostgresRepository<TTable> : IPostgresRepository<TTable> where TTab
     public async Task<IEnumerable<TTable>> WhereAsync(Expression<Func<TTable, bool>> predicate)
         => await Context.Set<TTable>().Where(predicate).AsNoTracking().ToListAsync();
 
-    public Task<TTable> FirstOrDefaultAsync(Guid id) => Context.Set<TTable>().FindAsync(id).AsTask()!;
+    public Task<TTable> FirstOrDefaultAsync(Guid id) => Context.Set<TTable>().AsNoTracking().FirstOrDefaultAsync(i=> i.Id == id)!;
 
     public Task<TTable> FirstOrDefaultAsync(Expression<Func<TTable, bool>> predicate)
         => Context.Set<TTable>().Where(predicate).AsNoTracking().FirstOrDefaultAsync()!;

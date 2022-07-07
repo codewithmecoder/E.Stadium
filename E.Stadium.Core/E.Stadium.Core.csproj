@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\E.Stadium.Abstraction\E.Stadium.Abstraction.csproj" />
+    <ProjectReference Include="..\E.Stadium.Shared\E.Stadium.Shared.csproj" />
   </ItemGroup>
 
 </Project>

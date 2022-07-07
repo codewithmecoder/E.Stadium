@@ -1281,6 +1281,7 @@
       "E.Stadium.Core/1.0.0": {
         "dependencies": {
           "E.Stadium.Abstraction": "1.0.0",
+          "E.Stadium.Shared": "1.0.0",
           "Microsoft.AspNetCore.DataProtection.Abstractions": "6.0.6",
           "Microsoft.Extensions.Identity.Core": "6.0.6"
         },

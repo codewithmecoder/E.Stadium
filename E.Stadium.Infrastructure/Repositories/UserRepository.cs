@@ -3,6 +3,7 @@ using E.Stadium.Core.Exceptions.User;
 using E.Stadium.Core.Repositories;
 using E.Stadium.Infrastructure.Postgres;
 using E.Stadium.Infrastructure.Postgres.User;
+using E.Stadium.Shared.Postgres.Paginations;
 using Microsoft.EntityFrameworkCore;
 
 namespace Mip.Farm.Infrastructure.Repositories;
@@ -70,4 +71,11 @@ public class UserRepository : IUserRepository
         var tb = await _repository.WhereAsync(x => x.ResetToken == token);
         return tb.FirstOrDefault()?.AsEntity();
     }
+
+    public async Task<PagedResult<UserEntity>> GetUsersAsync(bool isActive, int page, int result)
+    {
+        var data = await _repository.BrowseAsync(i => i.IsActive == isActive, new PagedQueryBase { Page = page, Limit = result });
+        return data.Map(i => i.AsEntity());
+    }
+
 }

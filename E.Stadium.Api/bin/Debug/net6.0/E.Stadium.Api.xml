@@ -4,10 +4,55 @@
         <name>E.Stadium.Api</name>
     </assembly>
     <members>
+        <member name="M:E.Stadium.Api.Controllers.V1.UserController.SignUpAsync(E.Stadium.Core.Dto.Users.SignUpDto)">
+            <summary>
+            sign a user 
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:E.Stadium.Api.Controllers.V1.UserController.LoginAsync(E.Stadium.Core.Dto.Users.LoginDto)">
+            <summary>
+            login user in 
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
         <member name="M:E.Stadium.Api.Controllers.V1.UserController.Get">
             <summary>
             get loged-in user information
             </summary>
+            <returns></returns>
+        </member>
+        <member name="M:E.Stadium.Api.Controllers.V1.UserController.GetAllUsersAsync(System.Boolean,E.Stadium.Core.Dto.Base.BasePaginateDto)">
+            <summary>
+            get all users
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:E.Stadium.Api.Controllers.V1.UserController.Put(E.Stadium.Core.Dto.Users.UpdateUserDto)">
+            <summary>
+            update user
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:E.Stadium.Api.Controllers.V1.UserController.InOrActiveUserAsync(System.Guid,System.Boolean)">
+            <summary>
+            active and inactive user
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:E.Stadium.Api.Controllers.V1.UserController.Delete(E.Stadium.Core.Dto.Users.DeleteUserDto)">
+            <summary>
+            delete user
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:E.Stadium.Api.Controllers.V1.UserController.ChangePasswordAsync(E.Stadium.Core.Dto.Users.ChangePasswordDto)">
+            <summary>
+            change password
+            </summary>
+            <param name="dto"></param>
             <returns></returns>
         </member>
     </members>

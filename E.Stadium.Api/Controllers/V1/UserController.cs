@@ -3,6 +3,7 @@ using E.Stadium.Abstraction.Jwt;
 using E.Stadium.Abstraction.Queries;
 using E.Stadium.Application.Commands.Users;
 using E.Stadium.Application.Queries.Users;
+using E.Stadium.Core.Dto.Base;
 using E.Stadium.Core.Dto.Users;
 using E.Stadium.Core.Entities.Users;
 using E.Stadium.Infrastructure.Services.Interfaces;
@@ -102,5 +103,74 @@ public class UserController : BaseController
         var query = new GetUserQuery(UserId);
         var user = await _query.QueryAsync(query);
         return Ok(user);
+    }
+
+    /// <summary>
+    /// get all users
+    /// </summary>
+    /// <returns></returns>
+    [HttpGet("{isActive}")]
+    public async Task<IActionResult> GetAllUsersAsync(bool isActive, [FromQuery] BasePaginateDto dto)
+    {
+        var query = new GetUsersQuery(isActive, dto.Page, dto.Results);
+        var user = await _query.QueryAsync(query);
+        return Ok(user);
+    }
+
+    /// <summary>
+    /// update user
+    /// </summary>
+    /// <returns></returns>
+    [HttpPut("update-user")]
+    public async Task<IActionResult> Put([FromBody] UpdateUserDto dto)
+    {
+        var cmd = new UpdateUserCommand(UserId, dto.FirstName, dto.LastName, dto.Gender, dto.DOB, dto.Email);
+        await _command.PerformAsync(cmd);
+        return Accepted();
+    }
+
+    /// <summary>
+    /// active and inactive user
+    /// </summary>
+    /// <returns></returns>
+    [HttpPut("{id}/{isActive}")]
+    public async Task<IActionResult> InOrActiveUserAsync(Guid id, bool isActive)
+    {
+        var cmd = new ActiveInActiveUserCommand(id, isActive, UserId);
+        await _command.PerformAsync(cmd);
+        return Accepted();
+    }
+
+    /// <summary>
+    /// delete user
+    /// </summary>
+    /// <returns></returns>
+    [HttpDelete("delete-user")]
+    public async Task<IActionResult> Delete([FromBody] DeleteUserDto dto)
+    {
+        var cmd = new DeleteUserCommand(dto.Id, UserId);
+        await _command.PerformAsync(cmd);
+        return Accepted();
+    }
+
+    /// <summary>
+    /// change password
+    /// </summary>
+    /// <param name="dto"></param>
+    /// <returns></returns>
+    [ProducesResponseType(StatusCodes.Status202Accepted)]
+    [ProducesDefaultResponseType]
+    [HttpPut("password")]
+    public async Task<ActionResult> ChangePasswordAsync([FromBody] ChangePasswordDto dto)
+    {
+        var cmd = new ChangePasswordCommand(UserId, dto.OldPassword, dto.NewPassword);
+        await _command.PerformAsync(cmd);
+        return Accepted();
+    }
+
+    [HttpPost("user/logout")]
+    public ActionResult Logout()
+    {
+        return Accepted();
     }
 }
