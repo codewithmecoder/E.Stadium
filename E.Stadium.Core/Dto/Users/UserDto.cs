@@ -1,4 +1,4 @@
-﻿namespace Mip.Farm.Core.Dto.Users;
+﻿namespace E.Stadium.Core.Dto.Users;
 
 public class UserDto
 {

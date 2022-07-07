@@ -8,6 +8,7 @@ namespace Mip.Farm.Api.Controllers;
 [ApiController]
 [Authorize]
 
+
 public abstract class BaseController : ControllerBase
 {
     private const string ResourceHeader = "X-Resource";

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>E.Stadium.Api</name>
+    </assembly>
+    <members>
+        <member name="M:E.Stadium.Api.Controllers.V1.UserController.Get">
+            <summary>
+            get loged-in user information
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

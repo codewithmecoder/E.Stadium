@@ -1,6 +1,6 @@
-﻿using E.Stadium.Core.Entities.Users;
+﻿using E.Stadium.Core.Dto.Users;
+using E.Stadium.Core.Entities.Users;
 using E.Stadium.Infrastructure.Postgres.User;
-using Mip.Farm.Core.Dto.Users;
 
 namespace E.Stadium.Infrastructure.Postgres.User;
 

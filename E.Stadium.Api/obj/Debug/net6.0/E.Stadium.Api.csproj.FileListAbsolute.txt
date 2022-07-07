@@ -88,3 +88,11 @@ C:\Users\HQ\OneDrive\Documents\E.Stadium\E.Stadium.Api\obj\Debug\net6.0\E.Stadiu
 C:\Users\HQ\OneDrive\Documents\E.Stadium\E.Stadium.Api\obj\Debug\net6.0\E.Stadium.Api.genruntimeconfig.cache
 C:\Users\HQ\OneDrive\Documents\E.Stadium\E.Stadium.Api\obj\Debug\net6.0\ref\E.Stadium.Api.dll
 C:\Users\HQ\OneDrive\Documents\E.Stadium\E.Stadium.Api\bin\Debug\net6.0\PhoneNumbers.dll
+C:\Users\HQ\OneDrive\Documents\E.Stadium\E.Stadium.Api\bin\Debug\net6.0\E.Stadium.Api.xml
+C:\Users\HQ\OneDrive\Documents\E.Stadium\E.Stadium.Api\bin\Debug\net6.0\Swashbuckle.AspNetCore.Filters.dll
+C:\Users\HQ\OneDrive\Documents\E.Stadium\E.Stadium.Api\bin\Debug\net6.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll
+C:\Users\HQ\OneDrive\Documents\E.Stadium\E.Stadium.Api\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\HQ\OneDrive\Documents\E.Stadium\E.Stadium.Api\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\HQ\OneDrive\Documents\E.Stadium\E.Stadium.Api\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+C:\Users\HQ\OneDrive\Documents\E.Stadium\E.Stadium.Api\bin\Debug\net6.0\Swashbuckle.AspNetCore.Newtonsoft.dll
+C:\Users\HQ\OneDrive\Documents\E.Stadium\E.Stadium.Api\bin\Debug\net6.0\Serilog.dll
