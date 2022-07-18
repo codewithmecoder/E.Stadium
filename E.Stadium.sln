@@ -17,10 +17,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E.Stadium.Shared", "E.Stadi
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C6D0C9FF-83C7-4C16-8F27-52A0800F250B}"
 	ProjectSection(SolutionItems) = preProject
-		D:\Project\unt\.dockerignore = D:\Project\unt\.dockerignore
-		D:\Project\myiprofile.qs-farming-api\myiprofile.qs-farming-api\src\.editorconfig = D:\Project\myiprofile.qs-farming-api\myiprofile.qs-farming-api\src\.editorconfig
-		D:\Project\unt\docker-compose.yml = D:\Project\unt\docker-compose.yml
-		D:\Project\unt\Dockerfile = D:\Project\unt\Dockerfile
+		.dockerignore = .dockerignore
+		.editorconfig = .editorconfig
+		docker-compose.yml = docker-compose.yml
+		Dockerfile = Dockerfile
 	EndProjectSection
 EndProject
 Global
