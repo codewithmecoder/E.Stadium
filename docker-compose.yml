@@ -1,0 +1,7 @@
+version: '3.3'
+services:
+  e-stadium:
+    build: .
+    container_name: e_stadium
+    ports: 
+      - "7090:5490"
