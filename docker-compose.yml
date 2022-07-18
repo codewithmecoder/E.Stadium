@@ -4,5 +4,5 @@ services:
     build: .
     container_name: e_stadium
     image: e_test:production
-    ports: 
+    ports:
       - "7090:7090"
