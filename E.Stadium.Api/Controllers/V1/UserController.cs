@@ -116,7 +116,6 @@ public class UserController : BaseController
         var user = await _query.QueryAsync(query);
         return Ok(user);
     }
-
     /// <summary>
     /// update user
     /// </summary>
