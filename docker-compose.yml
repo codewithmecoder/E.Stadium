@@ -4,4 +4,4 @@ services:
     build: .
     container_name: e_stadium
     ports: 
-      - "7090:7090"
+      - "7090:5404"
