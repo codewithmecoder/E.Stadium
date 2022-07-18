@@ -3,5 +3,6 @@ services:
   e-stadium:
     build: .
     container_name: e_stadium
+    image: e_test:production
     ports: 
       - "7090:7090"
