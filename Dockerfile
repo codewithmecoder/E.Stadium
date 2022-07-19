@@ -1,5 +1,6 @@
 FROM mcr.microsoft.com/dotnet/aspnet:6.0-focal AS base
 WORKDIR /app
+EXPOSE 5410
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0-focal AS build
 WORKDIR /src
@@ -19,5 +20,5 @@ RUN dotnet publish "E.Stadium.Api/E.Stadium.Api.csproj" -c Release -o /app/publi
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-EXPOSE 5410
+
 ENTRYPOINT ["dotnet", "E.Stadium.Api.dll"]
