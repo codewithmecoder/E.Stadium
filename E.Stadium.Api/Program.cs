@@ -50,7 +50,7 @@ var provider = app.Services.GetRequiredService<IApiVersionDescriptionProvider>()
 // Configure the HTTP request pipeline.
 
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
