@@ -5,4 +5,4 @@ services:
     container_name: e_stadium
     image: e_test:production
     ports:
-      - "7090:80"
+      - "7090:7090"
