@@ -60,20 +60,20 @@ public static class Extentions
 
         app.UseForwardedHeaders();
 
-        app.UseErrorHandler()
-            .UseMiddleware<AuthorizationRequestHandlerMiddleware>()
-            .UseMiddleware<LogMiddleware>()
-            //.UseInitializer()
-            .UseRequestLocalization(new RequestLocalizationOptions
-            {
-                DefaultRequestCulture = new RequestCulture("en-US"),
-                // Formatting numbers, dates, etc.
-                SupportedCultures = supportedCultures,
-                // UI strings that we have localized.
-                SupportedUICultures = supportedCultures
-            })
-            //.UseAllForwardedHeaders()
-            .UseLogUserIdMiddleware();
+        //app.UseErrorHandler()
+        //    .UseMiddleware<AuthorizationRequestHandlerMiddleware>()
+        //    .UseMiddleware<LogMiddleware>()
+        //    //.UseInitializer()
+        //    .UseRequestLocalization(new RequestLocalizationOptions
+        //    {
+        //        DefaultRequestCulture = new RequestCulture("en-US"),
+        //        // Formatting numbers, dates, etc.
+        //        SupportedCultures = supportedCultures,
+        //        // UI strings that we have localized.
+        //        SupportedUICultures = supportedCultures
+        //    })
+        //    //.UseAllForwardedHeaders()
+        //    .UseLogUserIdMiddleware();
 
 
         //app.UseMasstransit()
