@@ -1,9 +1,9 @@
-version: '3.3'
+version: '3.5'
 services:
   e-stadium:
     build: .
     container_name: e_stadium
-    image: e_test:production
+    image: ${IMAGE_NAME}
     ports:
-      #- "7090:5410"
-      - "7090:80"
+      - "7090:5410"
+      #- "7090:80"
