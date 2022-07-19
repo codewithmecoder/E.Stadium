@@ -19,5 +19,5 @@ RUN dotnet publish "E.Stadium.Api/E.Stadium.Api.csproj" -c Release -o /app/publi
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-EXPOSE 5410
+EXPOSE 80
 ENTRYPOINT ["dotnet", "E.Stadium.Api.dll"]

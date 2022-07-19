@@ -5,5 +5,5 @@ services:
     container_name: e_stadium
     image: ${IMAGE_NAME}
     ports:
-      - "7090:5410"
-      #- "7090:80"
+      #- "7090:5410"
+      - "7090:80"
