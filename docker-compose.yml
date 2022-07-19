@@ -6,3 +6,4 @@ services:
     image: e_test:production
     ports:
       - "7090:5410"
+      - "7090:80"
