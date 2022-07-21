@@ -72,7 +72,7 @@ if (app.Environment.IsDevelopment())
         {
             c.SwaggerEndpoint($"/swagger/{description.GroupName}/swagger.json", description.GroupName.ToUpperInvariant());
         }
-        c.RoutePrefix = "estadium/swagger";
+        c.RoutePrefix = "/estadium/swagger";
         //c.AddSecurityDefinition
     });
 }
