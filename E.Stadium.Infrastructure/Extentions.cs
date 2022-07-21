@@ -47,7 +47,7 @@ public static class Extentions
         var dbUser = configuration["POSTGRES_USER"];
         string dbUrl;
         if (dbPassword is null || dbServer is null || dbName is null || dbUser is null) dbUrl = null!;
-        else dbUrl = $"Server={dbServer};Port=5432;Database={dbName};User Id={dbUser};Password={dbPassword};";
+        else dbUrl = $"Server={dbServer};Port=5999;Database={dbName};User Id={dbUser};Password={dbPassword};";
         services.AddDbContext<PostgresDbContext>(opt =>
             opt.UseNpgsql(dbUrl ?? options.ConnectionString));
         services.AddPostgresRepositories();
