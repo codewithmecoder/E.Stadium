@@ -1,8 +1,8 @@
-FROM mcr.microsoft.com/dotnet/aspnet:6.0-focal AS base
+FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
 WORKDIR /app
 EXPOSE 5588
 
-FROM mcr.microsoft.com/dotnet/sdk:6.0-focal AS build
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 COPY E.Stadium.sln ./
 COPY data ./
@@ -19,6 +19,6 @@ RUN dotnet publish "E.Stadium.Api/E.Stadium.Api.csproj" -c Release -o /app/publi
 
 FROM base AS final
 WORKDIR /app
-COPY --from=publish /app/publish .
 ENV ASPNETCORE_URLS=http://*:5588
+COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "E.Stadium.Api.dll"]
