@@ -20,5 +20,5 @@ RUN dotnet publish "E.Stadium.Api/E.Stadium.Api.csproj" -c Release -o /app/publi
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENV ASPNETCORE_URLS=http://+:5588
+ENV ASPNETCORE_URLS=http://*:5588
 ENTRYPOINT ["dotnet", "E.Stadium.Api.dll"]
