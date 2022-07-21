@@ -1,8 +1,33 @@
 version: '3.5'
+networks:
+  e-stdium-network:
+    driver: bridge
 services:
   e-stadium:
     build: .
     container_name: e_stadium
     image: ${IMAGE_NAME}
     ports:
-      - "7090:80"
+      - "5588:5588"
+    depends_on:
+      - db
+    environment:
+      - CONNECTIONSTRINGS__DEFAULT=User ID=${POSTGRES_USER};Password=${POSTGRES_PASSWORD};Host=db;Port=5432;Database=${POSTGRES_DB}
+    networks:
+      - test-network
+  db:
+    image: postgres:latest
+    restart: always
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+    ports:
+      - '5432:5432'
+    networks:
+      - test-network
+    volumes: 
+      - db:/var/lib/postgresql/data
+volumes:
+  db:
+    driver: local
