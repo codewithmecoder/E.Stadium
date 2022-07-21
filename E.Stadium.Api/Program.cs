@@ -60,20 +60,20 @@ if (app.Environment.IsDevelopment())
     // Enable middleware to serve generated Swagger as a JSON endpoint.
     app.UseSwagger(c =>
     {
-        c.RouteTemplate = "swagger/{documentName}/swagger.json";
+        c.RouteTemplate = "estadium/swagger/{documentName}/swagger.json";
     });
 
     // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), 
     // specifying the Swagger JSON endpoint.
     app.UseSwaggerUI(c =>
     {
-        c.RoutePrefix = "/estadium/swagger";
+        
         //Build a swagger endpoint for each discovered API version  
         foreach (var description in provider.ApiVersionDescriptions.Reverse())
         {
-            c.SwaggerEndpoint($"/swagger/{description.GroupName}/swagger.json", description.GroupName.ToUpperInvariant());
+            c.SwaggerEndpoint($"/estadium/swagger/{description.GroupName}/swagger.json", description.GroupName.ToUpperInvariant());
         }
-
+        c.RoutePrefix = "estadium/swagger";
         //c.AddSecurityDefinition
     });
 }
