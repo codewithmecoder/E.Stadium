@@ -39,8 +39,17 @@ public static class Extentions
         services.AddTransient<IUserRepository, UserRepository>();
         services.AddVonage();
         var options = configuration.GetOptions<PostgresOptions>("Postgres");
+        //CONNECTIONSTRINGS__DEFAULT=User ID=${POSTGRES_USER};Password=${POSTGRES_PASSWORD};Host=db;Port=5432;Database=${POSTGRES_DB}
+        //"Server=192.168.1.112;Port=5432;Database=UntStockCount;User Id=postgres;Password=unt@3456;"
+        var dbServer = configuration["POSTGRESSERVER"];
+        var dbPassword = configuration["POSTGRES_PASSWORD"];
+        var dbName = configuration["POSTGRES_DB"];
+        var dbUser = configuration["POSTGRES_USER"];
+        string dbUrl;
+        if (dbPassword is null || dbServer is null || dbName is null || dbUser is null) dbUrl = null!;
+        else dbUrl = $"Server={dbServer};Port=5432;Database={dbName};User Id={dbUser};Password={dbPassword};";
         services.AddDbContext<PostgresDbContext>(opt =>
-            opt.UseNpgsql(options.ConnectionString));
+            opt.UseNpgsql(dbUrl ?? options.ConnectionString));
         services.AddPostgresRepositories();
         services.AddQueries();
         services.AddSwagger("E.Stadium.Api.xml", "E Stadium")
