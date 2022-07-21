@@ -67,12 +67,13 @@ if (app.Environment.IsDevelopment())
     // specifying the Swagger JSON endpoint.
     app.UseSwaggerUI(c =>
     {
-        
+
         //Build a swagger endpoint for each discovered API version  
-        foreach (var description in provider.ApiVersionDescriptions.Reverse())
-        {
-            c.SwaggerEndpoint($"/estadium/swagger/{description.GroupName}/swagger.json", description.GroupName.ToUpperInvariant());
-        }
+        //foreach (var description in provider.ApiVersionDescriptions.Reverse())
+        //{
+        //    c.SwaggerEndpoint($"/estadium/swagger/{description.GroupName}/swagger.json", description.GroupName.ToUpperInvariant());
+        //}
+        c.SwaggerEndpoint($"/estadium/swagger/v1/swagger.json", "E Stadium");
         c.RoutePrefix = "estadium/swagger";
         //c.AddSecurityDefinition
     });
