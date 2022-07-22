@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 namespace Mip.Farm.Api.Controllers;
 [ApiVersion("1")]
-[Route("v{version:apiVersion}/[controller]")]
+[Route("es/api/v{version:apiVersion}/[controller]")]
 [ApiController]
 [Authorize]
 
