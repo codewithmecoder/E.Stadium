@@ -6,7 +6,7 @@ namespace Mip.Farm.Api.Controllers;
 [ApiVersion("1")]
 [Route("es/api/v{version:apiVersion}/[controller]")]
 [ApiController]
-[Authorize]
+//[Authorize]
 
 
 public abstract class BaseController : ControllerBase
