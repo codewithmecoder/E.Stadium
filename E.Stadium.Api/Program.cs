@@ -13,6 +13,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
+builder.Services.AddCors();
 builder.Services.AddControllers().AddDefaultJsonOptions();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -52,6 +53,13 @@ var provider = app.Services.GetRequiredService<IApiVersionDescriptionProvider>()
 
 //app.UseHttpsRedirection();
 app.UseRouting();
+
+app.UseCors(x => x
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .SetIsOriginAllowed(origin => true) // allow any origin
+                .AllowCredentials()); // allow credentials
+
 app.UseAuthentication();
 app.UseAuthorization();
 
@@ -67,13 +75,13 @@ app.UseSwagger(c =>
 // specifying the Swagger JSON endpoint.
 app.UseSwaggerUI(c =>
 {
-        //Build a swagger endpoint for each discovered API version  
+    //Build a swagger endpoint for each discovered API version  
     foreach (var description in provider.ApiVersionDescriptions.Reverse())
     {
         c.SwaggerEndpoint($"/es/swagger/{description.GroupName}/swagger.json", description.GroupName.ToUpperInvariant());
     }
     c.RoutePrefix = "es/swagger";
-        //c.AddSecurityDefinition
+    //c.AddSecurityDefinition
 });
 //}
 
