@@ -55,27 +55,27 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
-if (app.Environment.IsDevelopment())
+//if (app.Environment.IsDevelopment())
+//{
+// Enable middleware to serve generated Swagger as a JSON endpoint.
+app.UseSwagger(c =>
 {
-    // Enable middleware to serve generated Swagger as a JSON endpoint.
-    app.UseSwagger(c =>
-    {
-        c.RouteTemplate = "es/swagger/{documentName}/swagger.json";
-    });
+    c.RouteTemplate = "es/swagger/{documentName}/swagger.json";
+});
 
-    // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), 
-    // specifying the Swagger JSON endpoint.
-    app.UseSwaggerUI(c =>
-    {
+// Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), 
+// specifying the Swagger JSON endpoint.
+app.UseSwaggerUI(c =>
+{
         //Build a swagger endpoint for each discovered API version  
-        foreach (var description in provider.ApiVersionDescriptions.Reverse())
-        {
-            c.SwaggerEndpoint($"/es/swagger/{description.GroupName}/swagger.json", description.GroupName.ToUpperInvariant());
-        }
-        c.RoutePrefix = "es/swagger";
+    foreach (var description in provider.ApiVersionDescriptions.Reverse())
+    {
+        c.SwaggerEndpoint($"/es/swagger/{description.GroupName}/swagger.json", description.GroupName.ToUpperInvariant());
+    }
+    c.RoutePrefix = "es/swagger";
         //c.AddSecurityDefinition
-    });
-}
+});
+//}
 
 app.UseInfrastructure();
 
