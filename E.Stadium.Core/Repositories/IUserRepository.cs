@@ -11,6 +11,7 @@ public interface IUserRepository : IRepository<UserEntity>
     Task<UserEntity?> GetAsync(Guid id);
     Task<PagedResult<UserEntity>> GetUsersAsync(bool isActive, int page, int result);
     Task RemoveAsync(Guid id);
+    Task UpdateUserToStadiumRentalAsync(Guid id);
     Task<bool> ExistPhoneAsync(string phone);
     Task<UserEntity?> GetByPhoneAsync(string phone);
     Task SetResetPasswordTokenByUserId(Guid id, string token);

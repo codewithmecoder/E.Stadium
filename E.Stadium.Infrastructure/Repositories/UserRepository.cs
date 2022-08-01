@@ -45,6 +45,15 @@ public class UserRepository : IUserRepository
         await _repository.UpdateAsync(tb);
     }
 
+    public async Task UpdateUserToStadiumRentalAsync(Guid id)
+    {
+        var tb = await _repository.FirstOrDefaultAsync(id);
+        if (tb is null)
+            throw new UserNotFoundException(id.ToString());
+        tb.IsStadiumRental = true;
+        await _repository.UpdateAsync(tb);
+    }
+
     public Task SetResetPasswordTokenByUserId(Guid id, string token)
     {
         FormattableString sql = @$"UPDATE users SET reset_token = {token} where id = {id}";

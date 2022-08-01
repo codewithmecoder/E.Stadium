@@ -20,7 +20,8 @@ public static class Extensions
                 resetToken: x.ResetToken,
                 createdAt: x.CreatedAt,
                 updatedAt: x.UpdatedAt,
-                isActive: x.IsActive
+                isActive: x.IsActive,
+                isStadiumRental: x.IsStadiumRental == null ? false : x.IsStadiumRental
             )
         { };
 
@@ -40,7 +41,8 @@ public static class Extensions
                 resetToken: x.ResetToken ?? string.Empty,
                 createdAt: x.CreatedAt,
                 updatedAt: x.UpdatedAt,
-                isActive: x.IsActive
+                isActive: x.IsActive,
+                isStadiumRental: x.IsStadiumRental == null ? false : x.IsStadiumRental
             )
         { };
     public static UserDto AsUserDto(this UserEntity x)
@@ -55,6 +57,5 @@ public static class Extensions
             Phone = x.Phone,
             Region = x.Region,
             FullName = x.GetFullName(),
-            Name = x.GetFullName(),
         };
 }

@@ -12,7 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddApplication();
-builder.Services.AddInfrastructure(builder.Configuration);
+builder.Services.AddInfrastructure(builder);
 builder.Services.AddCors();
 builder.Services.AddControllers().AddDefaultJsonOptions();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -63,8 +63,9 @@ app.UseCors(x => x
 app.UseAuthentication();
 app.UseAuthorization();
 
-//if (app.Environment.IsDevelopment())
-//{
+if (app.Environment.IsDevelopment())
+{
+}
 // Enable middleware to serve generated Swagger as a JSON endpoint.
 app.UseSwagger(c =>
 {
@@ -83,7 +84,6 @@ app.UseSwaggerUI(c =>
     c.RoutePrefix = "es/swagger";
     //c.AddSecurityDefinition
 });
-//}
 
 app.UseInfrastructure();
 

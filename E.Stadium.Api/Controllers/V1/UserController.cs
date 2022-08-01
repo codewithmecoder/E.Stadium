@@ -141,6 +141,18 @@ public class UserController : BaseController
     }
 
     /// <summary>
+    /// update normal user to stadium rental
+    /// </summary>
+    /// <returns></returns>
+    [HttpPut("update-to-stadium-rental")]
+    public async Task<IActionResult> UpdateToStadiumRental()
+    {
+        var cmd = new UpdateUserToStadiumRental(UserId);
+        await _command.PerformAsync(cmd);
+        return Accepted();
+    }
+
+    /// <summary>
     /// delete user
     /// </summary>
     /// <returns></returns>

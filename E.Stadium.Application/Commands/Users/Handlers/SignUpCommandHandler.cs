@@ -39,7 +39,8 @@ public class SignUpCommandHandler : ICommandHandler<SignUpCommand>
             resetToken: string.Empty,
             createdAt: DateTime.UtcNow,
             updatedAt: DateTime.UtcNow,
-            isActive: true);
+            isActive: true,
+            isStadiumRental: false);
 
         user.SetPassword(user.Password!, _passwordHasher);
         user.ParsePhone(_phoneParser);

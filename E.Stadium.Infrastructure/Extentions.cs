@@ -10,6 +10,7 @@ using E.Stadium.Core.Entities.Users;
 using E.Stadium.Core.Exceptions.Middlewares;
 using E.Stadium.Core.Repositories;
 using E.Stadium.Infrastructure.Postgres;
+using E.Stadium.Infrastructure.Repositories;
 using E.Stadium.Infrastructure.Services;
 using E.Stadium.Infrastructure.Services.Interfaces;
 using E.Stadium.Infrastructure.Swagger.RequestExamples;
@@ -22,6 +23,7 @@ using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Mip.Farm.Infrastructure.Repositories;
 using System.Globalization;
 
@@ -29,7 +31,7 @@ namespace E.Stadium.Infrastructure;
 
 public static class Extentions
 {
-    public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
+    public static IServiceCollection AddInfrastructure(this IServiceCollection services, WebApplicationBuilder builder)
     {
         services.AddTransient<IPasswordHasher<UserEntity>, PasswordHasher<UserEntity>>();
         services.AddTransient<ITokenProvider<UserEntity>, TokenProvider<UserEntity>>();
@@ -37,19 +39,31 @@ public static class Extentions
         services.AddTransient<IUserService, UserService>();
         services.AddTransient<IPhoneParser, PhoneParser>();
         services.AddTransient<IUserRepository, UserRepository>();
+        services.AddTransient<IStadiumRepository, StadiumRepository>();
+        services.AddTransient<IFileUploadStadiumRepository, FileUploadStadiumRepository>();
         services.AddVonage();
-        var options = configuration.GetOptions<PostgresOptions>("Postgres");
+        var options = builder.Configuration.GetOptions<PostgresOptions>("Postgres");
         //CONNECTIONSTRINGS__DEFAULT=User ID=${POSTGRES_USER};Password=${POSTGRES_PASSWORD};Host=db;Port=5432;Database=${POSTGRES_DB}
         //"Server=192.168.1.112;Port=5432;Database=UntStockCount;User Id=postgres;Password=unt@3456;"
-        var dbServer = configuration["POSTGRESSERVER"];
-        var dbPassword = configuration["POSTGRES_PASSWORD"];
-        var dbName = configuration["POSTGRES_DB"];
-        var dbUser = configuration["POSTGRES_USER"];
-        string dbUrl;
-        if (dbPassword is null || dbServer is null || dbName is null || dbUser is null) dbUrl = null!;
-        else dbUrl = $"Server={dbServer};Port=5999;Database={dbName};User Id={dbUser};Password={dbPassword};";
-        services.AddDbContext<PostgresDbContext>(opt =>
-            opt.UseNpgsql(dbUrl ?? options.ConnectionString));
+        
+        var env = builder.Environment;
+        if (env.IsProduction())
+        {
+            var dbServer = builder.Configuration["POSTGRESSERVER"];
+            var dbPassword = builder.Configuration["POSTGRES_PASSWORD"];
+            var dbName = builder.Configuration["POSTGRES_DB"];
+            var dbUser = builder.Configuration["POSTGRES_USER"];
+            string dbUrl;
+            if (dbPassword is null || dbServer is null || dbName is null || dbUser is null) dbUrl = null!;
+            else dbUrl = $"Server={dbServer};Port=5999;Database={dbName};User Id={dbUser};Password={dbPassword};";
+            services.AddDbContext<PostgresDbContext>(opt =>
+                opt.UseNpgsql(dbUrl ?? options.ConnectionString));
+        }
+        else
+        {
+            services.AddDbContext<PostgresDbContext>(opt =>
+                opt.UseNpgsql(options.ConnectionStringDev));
+        }
         services.AddPostgresRepositories();
         services.AddQueries();
         services.AddSwagger("E.Stadium.Api.xml", "E Stadium")

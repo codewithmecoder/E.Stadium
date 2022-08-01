@@ -11,5 +11,4 @@ public class UserDto
     public string? Region { get; set; } = string.Empty;
     public string? Email { get; set; } = string.Empty;
     public string? FullName { get; set; }
-    public string? Name { get; set; }
 }

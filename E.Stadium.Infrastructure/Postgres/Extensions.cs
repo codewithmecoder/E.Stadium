@@ -1,4 +1,6 @@
-﻿using E.Stadium.Infrastructure.Postgres.User;
+﻿using E.Stadium.Infrastructure.Postgres.FileUploads;
+using E.Stadium.Infrastructure.Postgres.Stadiums;
+using E.Stadium.Infrastructure.Postgres.User;
 using E.Stadium.Shared.Postgres;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -10,6 +12,10 @@ public static class Extensions
     public static IServiceCollection AddPostgresRepositories(this IServiceCollection services)
     {
         services.AddPostgresRepository<UserTable>();
+        services.AddPostgresRepository<StadiumTable>();
+        services.AddPostgresRepository<FieldTable>();
+        services.AddPostgresRepository<StadiumMediaTable>();
+        services.AddPostgresRepository<FieldMediaTable>();
 
         //services.AddTransient<IDbRepository, DbRepository>(sp =>
         //{

@@ -4,6 +4,20 @@
         <name>E.Stadium.Api</name>
     </assembly>
     <members>
+        <member name="M:E.Stadium.Api.Controllers.V1.StadiumController.CreateStadium(E.Stadium.Core.Dto.Stadiums.CreateStadiumDto)">
+            <summary>
+            Create Stadium
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:E.Stadium.Api.Controllers.V1.StadiumController.GetStadiumAsync(System.Guid)">
+            <summary>
+            get stadium by id and base on user login
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="M:E.Stadium.Api.Controllers.V1.UserController.SignUpAsync(E.Stadium.Core.Dto.Users.SignUpDto)">
             <summary>
             sign a user 
@@ -39,6 +53,12 @@
         <member name="M:E.Stadium.Api.Controllers.V1.UserController.InOrActiveUserAsync(System.Guid,System.Boolean)">
             <summary>
             active and inactive user
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:E.Stadium.Api.Controllers.V1.UserController.UpdateToStadiumRental">
+            <summary>
+            update normal user to stadium rental
             </summary>
             <returns></returns>
         </member>
