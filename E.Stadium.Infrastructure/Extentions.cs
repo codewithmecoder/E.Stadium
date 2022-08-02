@@ -46,15 +46,15 @@ public static class Extentions
         var env = builder.Environment;
         if (env.IsProduction())
         {
-            var dbServer = builder.Configuration["POSTGRESSERVER"];
-            var dbPassword = builder.Configuration["POSTGRES_PASSWORD"];
-            var dbName = builder.Configuration["POSTGRES_DB"];
-            var dbUser = builder.Configuration["POSTGRES_USER"];
-            string dbUrl;
-            if (dbPassword is null || dbServer is null || dbName is null || dbUser is null) dbUrl = null!;
-            else dbUrl = $"Server={dbServer};Port=5999;Database={dbName};User Id={dbUser};Password={dbPassword};";
+            //var dbServer = builder.Configuration["POSTGRESSERVER"];
+            //var dbPassword = builder.Configuration["POSTGRES_PASSWORD"];
+            //var dbName = builder.Configuration["POSTGRES_DB"];
+            //var dbUser = builder.Configuration["POSTGRES_USER"];
+            //string dbUrl;
+            //if (dbPassword is null || dbServer is null || dbName is null || dbUser is null) dbUrl = null!;
+            //else dbUrl = $"Server={dbServer};Port=5999;Database={dbName};User Id={dbUser};Password={dbPassword};";
             services.AddDbContext<PostgresDbContext>(opt =>
-                opt.UseNpgsql(dbUrl ?? options.ConnectionString));
+                opt.UseNpgsql(/*dbUrl ?? */options.ConnectionString));
         }
         else
         {
