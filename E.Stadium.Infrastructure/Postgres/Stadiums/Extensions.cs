@@ -19,7 +19,9 @@ public static class Extensions
             createdAt: x.CreatedAt,
             updatedAt: x.UpdatedAt,
             address: x.Address,
-            isActive: x.IsActive
+            isActive: x.IsActive,
+            startTime: x.StartTime,
+            endTime: x.EndTime
            )
        {
            Fields = x.Fields.Select(i => i.AsTable()),
@@ -38,7 +40,9 @@ public static class Extensions
             createdAt: x.CreatedAt,
             updatedAt: x.UpdatedAt,
             address: x.Address,
-            isActive: x.IsActive
+            isActive: x.IsActive,
+            startTime: x.StartTime,
+            endTime: x.EndTime
             )
         {
             Fields = x.Fields.Select(i => i.AsEntity()),
@@ -57,7 +61,9 @@ public static class Extensions
         createdAt: x.CreatedAt,
         updatedAt: x.UpdatedAt,
         address: x.Address,
-        isActive: x.IsActive
+        isActive: x.IsActive,
+        startTime: x.StartTime,
+        endTime: x.EndTime
        )
     {
         Fields = x.Fields?.Select(i => i.AsDto()),

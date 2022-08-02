@@ -18,6 +18,32 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="M:E.Stadium.Api.Controllers.V1.StadiumController.GetStadiumAsync(System.String,System.Int32,System.Int32)">
+            <summary>
+            get all active stadium
+            </summary>
+            <param name="filter"></param>
+            <param name="page"></param>
+            <param name="result"></param>
+            <returns></returns>
+        </member>
+        <member name="M:E.Stadium.Api.Controllers.V1.StadiumController.GetStadiumByUserAsync(System.String,System.Int32,System.Int32)">
+            <summary>
+            get all active stadium base on user login
+            </summary>
+            <param name="filter"></param>
+            <param name="page"></param>
+            <param name="result"></param>
+            <returns></returns>
+        </member>
+        <member name="M:E.Stadium.Api.Controllers.V1.StadiumController.UpdateStadiumAsync(System.Guid,E.Stadium.Core.Dto.Stadiums.UpdateStadiumDto)">
+            <summary>
+            update Stadium by id
+            </summary>
+            <param name="id"></param>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
         <member name="M:E.Stadium.Api.Controllers.V1.UserController.SignUpAsync(E.Stadium.Core.Dto.Users.SignUpDto)">
             <summary>
             sign a user 

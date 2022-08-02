@@ -15,6 +15,9 @@ public class CreateStadiumCommand : ICommand
     public string? Address { get; set; }
     public bool? IsActive { get; set; }
     public List<string>? StadiumImageUrls { get; set; }
+    public string StartTime { get; set; }
+    public string EndTime { get; set; }
+
     public CreateStadiumCommand(
         Guid id,
         Guid userId,
@@ -25,7 +28,9 @@ public class CreateStadiumCommand : ICommand
         DateTime? createdAt,
         DateTime? updatedAt,
         string? address,
-        bool? isActive)
+        bool? isActive,
+        string startTime,
+        string endTime)
     {
         Id = id;
         UserId = userId;
@@ -37,5 +42,7 @@ public class CreateStadiumCommand : ICommand
         UpdatedAt = updatedAt;
         Address = address;
         IsActive = isActive;
+        StartTime = startTime;
+        EndTime = endTime;
     }
 }

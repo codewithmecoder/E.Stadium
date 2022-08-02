@@ -29,7 +29,9 @@ public class CreateStadiumCommandHandler : ICommandHandler<CreateStadiumCommand>
             createdAt: cmd.CreatedAt,
             updatedAt: cmd.UpdatedAt,
             address: cmd.Address,
-            isActive: cmd.IsActive
+            isActive: cmd.IsActive,
+            startTime: cmd.StartTime,
+            endTime: cmd.EndTime
             );
         if (cmd.StadiumImageUrls is not null)
         {

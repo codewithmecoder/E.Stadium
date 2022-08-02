@@ -17,6 +17,8 @@ public class StadiumEntity : IEntity
     public DateTime? UpdatedAt { get; set; }
     public string? Address { get; set; }
     public bool? IsActive { get; set; }
+    public string? StartTime { get; set; }
+    public string? EndTime { get; set; }
 
     public StadiumEntity(
         Guid id,
@@ -29,7 +31,9 @@ public class StadiumEntity : IEntity
         DateTime? createdAt,
         DateTime? updatedAt,
         string? address,
-        bool? isActive)
+        bool? isActive,
+        string? startTime,
+        string? endTime)
     {
         Id = id;
         UserId = userId;
@@ -42,6 +46,8 @@ public class StadiumEntity : IEntity
         UpdatedAt = updatedAt;
         Address = address;
         IsActive = isActive;
+        StartTime = startTime;
+        EndTime = endTime;
     }
 
     public IEnumerable<FieldEntity> Fields { get; set; } = new List<FieldEntity>();

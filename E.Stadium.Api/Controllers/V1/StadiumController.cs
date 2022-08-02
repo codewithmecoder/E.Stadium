@@ -40,7 +40,9 @@ namespace E.Stadium.Api.Controllers.V1
                 createdAt: DateTime.UtcNow,
                 updatedAt: DateTime.UtcNow,
                 address: dto.Address,
-                isActive: true
+                isActive: true,
+                startTime: dto.StartTime,
+                endTime: dto.EndTime
                 )
             {
                 StadiumImageUrls = dto.StadiumImageUrls
@@ -63,12 +65,61 @@ namespace E.Stadium.Api.Controllers.V1
             return Ok(user);
         }
 
-        //[HttpGet("all")]
-        //public async Task<ActionResult<StadiumEntity>> GetStadiumAsync()
-        //{
-        //    //var query = new GetStadiumByIdQuery(id);
-        //    //var user = await _query.QueryAsync(query);
-        //    //return Ok(user);
-        //}
+        /// <summary>
+        /// get all active stadium
+        /// </summary>
+        /// <param name="filter"></param>
+        /// <param name="page"></param>
+        /// <param name="result"></param>
+        /// <returns></returns>
+        [HttpGet("all")]
+        public async Task<ActionResult<ResponseStadiumDto>> GetStadiumAsync(string? filter, int page, int result)
+        {
+            var query = new GetAllStadiumByFilterQuery(filter, page, result);
+            var user = await _query.QueryAsync(query);
+            return Ok(user);
+        }
+
+        /// <summary>
+        /// get all active stadium base on user login
+        /// </summary>
+        /// <param name="filter"></param>
+        /// <param name="page"></param>
+        /// <param name="result"></param>
+        /// <returns></returns>
+        [HttpGet("all-by-user")]
+        public async Task<ActionResult<StadiumEntity>> GetStadiumByUserAsync(string? filter, int page, int result)
+        {
+            var query = new GetAllStadiumByFilterBaseUserIdQuery(filter ?? string.Empty, UserId, page, result);
+            var user = await _query.QueryAsync(query);
+            return Ok(user);
+        }
+
+        /// <summary>
+        /// update Stadium by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        [HttpPut("{id:guid}")]
+        public async Task<IActionResult> UpdateStadiumAsync(Guid id, [FromBody] UpdateStadiumDto dto)
+        {
+            var cmd = new UpdateStadiumCommand(
+                id: id,
+                userId: UserId,
+                name: dto.Name,
+                description: dto.Description,
+                lat: dto.Lat,
+                lon: dto.Lon,
+                updatedAt: DateTime.UtcNow,
+                address: dto.Address,
+                startTime: dto.StartTime,
+                endTime: dto.EndTime
+                )
+            {};
+            await _command.PerformAsync(cmd);
+
+            return AcceptedWithResource($"stadium/{id}", id.ToString());
+        }
     }
 }

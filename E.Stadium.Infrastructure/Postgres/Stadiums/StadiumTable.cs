@@ -38,6 +38,12 @@ public class StadiumTable : BasePostgresTable
     [Column("is_active")]
     public bool? IsActive { get; set; }
 
+    [Column("start_time")]
+    public string? StartTime { get; set; }
+
+    [Column("end_time")]
+    public string? EndTime { get; set; }
+
     public StadiumTable(
         Guid id,
         Guid userId,
@@ -49,7 +55,9 @@ public class StadiumTable : BasePostgresTable
         DateTime? createdAt,
         DateTime? updatedAt,
         string? address,
-        bool? isActive)
+        bool? isActive,
+        string? startTime,
+        string? endTime)
     {
         Id = id;
         UserId = userId;
@@ -62,6 +70,8 @@ public class StadiumTable : BasePostgresTable
         UpdatedAt = updatedAt;
         Address = address;
         IsActive = isActive;
+        StartTime = startTime;
+        EndTime = endTime;
     }
 
     public IEnumerable<FieldTable> Fields { get; set; } = new List<FieldTable>();

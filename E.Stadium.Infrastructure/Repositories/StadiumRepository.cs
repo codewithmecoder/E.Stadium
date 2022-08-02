@@ -27,14 +27,35 @@ public class StadiumRepository : IStadiumRepository
         await _repository.UpdateAsync(data.AsTable());
     }
 
-    public Task<PagedResult<StadiumEntity>> GetByFilterAsync(string filter, int page, int result)
+    public  async Task<PagedResult<ResponseStadiumDto>> GetByFilterAsync(string filter, int page, int result)
     {
-        throw new NotImplementedException();
+        var pages = await _repository.Context.Stadiums
+            .Include(i => i.StadiumMedias)
+            .Include(i => i.Fields)
+            .ThenInclude(i => i.FieldMedias)
+            .AsQueryable()
+            .PaginateAsync(new PagedQueryBase { Page = page, Limit = result });
+        var res = pages.Map(x =>
+        {
+            return x?.AsEntity().AsDto();
+        });
+        return res!;
     }
 
-    public Task<PagedResult<StadiumEntity>> GetByFilterAsync(string filter, Guid owerId, int page, int result)
+    public async Task<PagedResult<ResponseStadiumDto>> GetByFilterAsync(string filter, Guid ownerId, int page, int result)
     {
-        throw new NotImplementedException();
+        var pages = await _repository.Context.Stadiums
+            .Include(i => i.StadiumMedias)
+            .Include(i => i.Fields)
+            .ThenInclude(i => i.FieldMedias)
+            .Where(i => i.UserId == ownerId && (i.IsActive ?? false) == true)
+            .AsQueryable()
+            .PaginateAsync(new PagedQueryBase { Page = page, Limit = result });
+        var res = pages.Map(x =>
+        {
+            return x?.AsEntity().AsDto();
+        });
+        return res!;
     }
 
     public async Task<StadiumEntity> GetByIdAsync(Guid id, Guid ownerId)
@@ -50,6 +71,13 @@ public class StadiumRepository : IStadiumRepository
 
     public Task UpdateAsync(StadiumEntity stadium)
     {
-        throw new NotImplementedException();
+        var a = stadium.AsTable();
+        return _repository.UpdateAsync(a);
+    }
+
+    public async Task<StadiumEntity> GetOnlyStadiumByIdAsync(Guid id, Guid ownerId)
+    {
+        var data = await _repository.FirstOrDefaultAsync(i => i.Id == id && i.UserId == ownerId);
+        return data.AsEntity();
     }
 }
