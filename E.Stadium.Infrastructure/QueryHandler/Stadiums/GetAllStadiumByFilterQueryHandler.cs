@@ -16,6 +16,6 @@ public class GetAllStadiumByFilterQueryHandler : IQueryHandler<GetAllStadiumByFi
     }
     public async Task<PagedResult<ResponseStadiumDto>> HandleAsync(GetAllStadiumByFilterQuery query)
     {
-        return await _stadiumRepository.GetByFilterAsync(query.Filter ?? string.Empty, query.Page, query.Result);
+        return await _stadiumRepository.GetByFilterAsync(query.Filter ?? string.Empty, query.Page, query.Results);
     }
 }

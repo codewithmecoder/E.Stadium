@@ -22,7 +22,7 @@ public class StadiumRepository : IStadiumRepository
 
     public async Task DeleteByIdAsync(Guid id, Guid ownerId)
     {
-        var data = await GetByIdAsync(id, ownerId);
+        var data = await GetOnlyStadiumByIdAsync(id, ownerId);
         data.IsActive = false;
         await _repository.UpdateAsync(data.AsTable());
     }
@@ -33,6 +33,8 @@ public class StadiumRepository : IStadiumRepository
             .Include(i => i.StadiumMedias)
             .Include(i => i.Fields)
             .ThenInclude(i => i.FieldMedias)
+            .Where(i => (i.IsActive ?? false) == true)
+            .OrderByDescending(i => i.CreatedAt)
             .AsQueryable()
             .PaginateAsync(new PagedQueryBase { Page = page, Limit = result });
         var res = pages.Map(x =>
@@ -49,6 +51,7 @@ public class StadiumRepository : IStadiumRepository
             .Include(i => i.Fields)
             .ThenInclude(i => i.FieldMedias)
             .Where(i => i.UserId == ownerId && (i.IsActive ?? false) == true)
+            .OrderByDescending(i => i.CreatedAt)
             .AsQueryable()
             .PaginateAsync(new PagedQueryBase { Page = page, Limit = result });
         var res = pages.Map(x =>
@@ -64,20 +67,20 @@ public class StadiumRepository : IStadiumRepository
             .Include(i => i.StadiumMedias)
             .Include(i => i.Fields)
             .ThenInclude(i => i.FieldMedias)
-            .FirstOrDefaultAsync(i => i.Id == id && i.UserId == ownerId);
+            .FirstOrDefaultAsync(i => i.Id == id && i.UserId == ownerId && (i.IsActive ?? false) == true);
         if (data is null) throw new StadiumNotFoundException(id);
         return data.AsEntity();
     }
 
     public Task UpdateAsync(StadiumEntity stadium)
     {
-        var a = stadium.AsTable();
-        return _repository.UpdateAsync(a);
+        return _repository.UpdateAsync(stadium.AsTable());
     }
 
     public async Task<StadiumEntity> GetOnlyStadiumByIdAsync(Guid id, Guid ownerId)
     {
-        var data = await _repository.FirstOrDefaultAsync(i => i.Id == id && i.UserId == ownerId);
+        var data = await _repository.FirstOrDefaultAsync(i => i.Id == id && i.UserId == ownerId && (i.IsActive ?? false) == true);
+        if (data is null) throw new StadiumNotFoundException(id);
         return data.AsEntity();
     }
 }

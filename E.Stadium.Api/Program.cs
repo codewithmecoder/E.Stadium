@@ -63,9 +63,6 @@ app.UseCors(x => x
 app.UseAuthentication();
 app.UseAuthorization();
 
-if (app.Environment.IsDevelopment())
-{
-}
 // Enable middleware to serve generated Swagger as a JSON endpoint.
 app.UseSwagger(c =>
 {

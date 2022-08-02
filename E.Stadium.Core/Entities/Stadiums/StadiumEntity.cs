@@ -8,7 +8,7 @@ public class StadiumEntity : IEntity
 {
     public Guid Id { get; set; }
     public Guid UserId { get; set; }
-    public int TotalFields { get; set; }
+    public int TotalFields { get => Fields.ToList().Count; }
     public string? Name { get; set; }
     public string? Description { get; set; }
     public decimal? Lat { get; set; }
@@ -23,7 +23,6 @@ public class StadiumEntity : IEntity
     public StadiumEntity(
         Guid id,
         Guid userId,
-        int totalFields,
         string? name,
         string? description,
         decimal? lat,
@@ -37,7 +36,6 @@ public class StadiumEntity : IEntity
     {
         Id = id;
         UserId = userId;
-        TotalFields = totalFields;
         Name = name;
         Description = description;
         Lat = lat;

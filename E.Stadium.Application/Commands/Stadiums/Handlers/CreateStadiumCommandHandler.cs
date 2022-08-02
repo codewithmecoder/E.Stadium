@@ -21,7 +21,6 @@ public class CreateStadiumCommandHandler : ICommandHandler<CreateStadiumCommand>
         var stadiumEntity = new StadiumEntity(
             id: cmd.Id,
             userId: cmd.UserId,
-            totalFields: 0,
             name: cmd.Name,
             description: cmd.Description,
             lat: cmd.Lat,

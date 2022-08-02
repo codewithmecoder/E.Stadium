@@ -24,15 +24,14 @@ public static class Extensions
             endTime: x.EndTime
            )
        {
-           Fields = x.Fields.Select(i => i.AsTable()),
-           StadiumMedias = x.StadiumMedias.Select(i => i.AsTable()),
+           Fields = x.Fields.Where(i => i.IsActive).Select(i => i.AsTable()),
+           StadiumMedias = x.StadiumMedias.Where(i=> i.IsActive).Select(i => i.AsTable()),
            User = x.User?.AsTable()
        };
     public static StadiumEntity AsEntity(this StadiumTable x)
         => new(
             id: x.Id,
             userId: x.UserId,
-            totalFields: x.TotalFields,
             name: x.Name,
             description: x.Description,
             lat: x.Lat,
@@ -45,7 +44,7 @@ public static class Extensions
             endTime: x.EndTime
             )
         {
-            Fields = x.Fields.Select(i => i.AsEntity()),
+            Fields = x.Fields.Where(i => i.IsActive).Select(i => i.AsEntity()),
             StadiumMedias = x.StadiumMedias.Where(i => i.IsActive).Select(i => i.AsEntity()),
             User = x.User?.AsEntity()
         };
@@ -66,8 +65,8 @@ public static class Extensions
         endTime: x.EndTime
        )
     {
-        Fields = x.Fields?.Select(i => i.AsDto()),
-        StadiumMedias = x.StadiumMedias?.Select(i=> i.AsDto()),
+        Fields = x.Fields?.Where(i => i.IsActive).Select(i => i.AsDto()),
+        StadiumMedias = x.StadiumMedias?.Where(i => i.IsActive).Select(i=> i.AsDto()),
     };
     public static FieldTable AsTable(this FieldEntity x)
     => new(
@@ -82,7 +81,7 @@ public static class Extensions
         )
     {
         Stadium = x.Stadium?.AsTable(),
-        FieldMedias = x.FieldMedias?.Select(i => i.AsTable())
+        FieldMedias = x.FieldMedias?.Where(i => i.IsActive).Select(i => i.AsTable())
     };
 
     public static FieldEntity AsEntity(this FieldTable x)
@@ -98,7 +97,7 @@ public static class Extensions
         )
     {
         Stadium = x.Stadium?.AsEntity(),
-        FieldMedias = x.FieldMedias?.Select(i => i.AsEntity())
+        FieldMedias = x.FieldMedias?.Where(i => i.IsActive).Select(i => i.AsEntity())
     };
 
     public static ResponseFieldDto AsDto(this FieldEntity x)
@@ -113,6 +112,6 @@ public static class Extensions
             isActive: x.IsActive
             )
         {
-            FieldMedias = x.FieldMedias?.Select(i=> i.AsDto()),
+            FieldMedias = x.FieldMedias?.Where(i=> i.IsActive).Select(i=> i.AsDto()),
         };
 }

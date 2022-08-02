@@ -1,39 +1,29 @@
-﻿using E.Stadium.Abstraction.Data;
-using E.Stadium.Core.Entities.FileUploads;
+﻿using E.Stadium.Abstraction.Commands;
 
-namespace E.Stadium.Core.Entities.Stadiums;
+namespace E.Stadium.Application.Commands.Fields;
 
-public class FieldEntity : IEntity
+public class UpdateFieldCommand : ICommand
 {
     public Guid Id { get; set; }
     public Guid StadiumId { get; set; }
     public int NumberOfPoeple { get; set; }
     public string? Size { get; set; }
     public string? Name { get; set; }
-    public DateTime? CreatedAt { get; set; }
     public DateTime? UpdatedAt { get; set; }
-    public bool IsActive { get; set; }
 
-    public FieldEntity(
+    public UpdateFieldCommand(
         Guid id,
         Guid stadiumId,
         int numberOfPoeple,
         string? size,
         string? name,
-        DateTime? createdAt,
-        DateTime? updatedAt,
-        bool isActive)
+        DateTime? updatedAt)
     {
         Id = id;
         StadiumId = stadiumId;
         NumberOfPoeple = numberOfPoeple;
         Size = size;
         Name = name;
-        CreatedAt = createdAt;
         UpdatedAt = updatedAt;
-        IsActive = isActive;
     }
-
-    public StadiumEntity? Stadium { get; set; }
-    public IEnumerable<FieldMediaEntity>? FieldMedias { get; set; }
 }

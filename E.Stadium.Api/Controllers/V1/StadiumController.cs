@@ -2,8 +2,10 @@
 using E.Stadium.Abstraction.Queries;
 using E.Stadium.Application.Commands.Stadiums;
 using E.Stadium.Application.Queries.Stadiums;
+using E.Stadium.Core.Dto.Base;
 using E.Stadium.Core.Dto.Stadiums;
 using E.Stadium.Core.Entities.Stadiums;
+using E.Stadium.Shared.Postgres.Paginations;
 using Microsoft.AspNetCore.Mvc;
 using Mip.Farm.Api.Controllers;
 
@@ -69,13 +71,12 @@ namespace E.Stadium.Api.Controllers.V1
         /// get all active stadium
         /// </summary>
         /// <param name="filter"></param>
-        /// <param name="page"></param>
-        /// <param name="result"></param>
+        /// <param name="dto"></param>
         /// <returns></returns>
         [HttpGet("all")]
-        public async Task<ActionResult<ResponseStadiumDto>> GetStadiumAsync(string? filter, int page, int result)
+        public async Task<ActionResult<PagedResult<ResponseStadiumDto>>> GetStadiumAsync(string? filter, [FromQuery] BasePaginateDto dto)
         {
-            var query = new GetAllStadiumByFilterQuery(filter, page, result);
+            var query = new GetAllStadiumByFilterQuery(filter, dto.Page, dto.Results);
             var user = await _query.QueryAsync(query);
             return Ok(user);
         }
@@ -84,13 +85,12 @@ namespace E.Stadium.Api.Controllers.V1
         /// get all active stadium base on user login
         /// </summary>
         /// <param name="filter"></param>
-        /// <param name="page"></param>
-        /// <param name="result"></param>
+        /// <param name="dto"></param>
         /// <returns></returns>
         [HttpGet("all-by-user")]
-        public async Task<ActionResult<StadiumEntity>> GetStadiumByUserAsync(string? filter, int page, int result)
+        public async Task<ActionResult<PagedResult<ResponseStadiumDto>>> GetStadiumByUserAsync(string? filter, [FromQuery] BasePaginateDto dto)
         {
-            var query = new GetAllStadiumByFilterBaseUserIdQuery(filter ?? string.Empty, UserId, page, result);
+            var query = new GetAllStadiumByFilterBaseUserIdQuery(filter ?? string.Empty, UserId, dto.Page, dto.Results);
             var user = await _query.QueryAsync(query);
             return Ok(user);
         }
@@ -120,6 +120,19 @@ namespace E.Stadium.Api.Controllers.V1
             await _command.PerformAsync(cmd);
 
             return AcceptedWithResource($"stadium/{id}", id.ToString());
+        }
+
+        /// <summary>
+        /// Delete stadium
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpDelete("{id:guid}")]
+        public async Task<IActionResult> DaleteFieldAsync(Guid id)
+        {
+            var cmd = new DeleteStadiumCommand(id, UserId);
+            await _command.PerformAsync(cmd);
+            return Accepted();
         }
     }
 }

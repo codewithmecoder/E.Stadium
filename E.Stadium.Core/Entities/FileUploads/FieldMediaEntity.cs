@@ -1,8 +1,9 @@
-﻿using E.Stadium.Core.Entities.Stadiums;
+﻿using E.Stadium.Abstraction.Data;
+using E.Stadium.Core.Entities.Stadiums;
 
 namespace E.Stadium.Core.Entities.FileUploads;
 
-public class FieldMediaEntity
+public class FieldMediaEntity : IEntity
 {
     public Guid Id { get; set; }
     public Guid StadiumId { get; set; }

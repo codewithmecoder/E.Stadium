@@ -22,4 +22,8 @@
     <PackageReference Include="Vonage" Version="5.10.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Middlewares\Logging\" />
+  </ItemGroup>
+
 </Project>

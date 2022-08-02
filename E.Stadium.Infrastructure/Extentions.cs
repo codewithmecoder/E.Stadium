@@ -1,8 +1,5 @@
-﻿using E.Stadium.Abstraction.Commands;
-using E.Stadium.Abstraction.DataProtector;
+﻿using E.Stadium.Abstraction.DataProtector;
 using E.Stadium.Abstraction.Jwt;
-using E.Stadium.Abstraction.Middlewares.Logging;
-using E.Stadium.Abstraction.Queries;
 using E.Stadium.Abstraction.Swagger;
 using E.Stadium.Abstraction.Utilities;
 using E.Stadium.Application.Middlewares;
@@ -14,14 +11,12 @@ using E.Stadium.Infrastructure.Repositories;
 using E.Stadium.Infrastructure.Services;
 using E.Stadium.Infrastructure.Services.Interfaces;
 using E.Stadium.Infrastructure.Swagger.RequestExamples;
-using E.Stadium.Shared.Commands;
 using E.Stadium.Shared.Options;
 using E.Stadium.Shared.Queries;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Mip.Farm.Infrastructure.Repositories;
@@ -41,6 +36,8 @@ public static class Extentions
         services.AddTransient<IUserRepository, UserRepository>();
         services.AddTransient<IStadiumRepository, StadiumRepository>();
         services.AddTransient<IFileUploadStadiumRepository, FileUploadStadiumRepository>();
+        services.AddTransient<IFieldRepository, FieldRepository>();
+        services.AddTransient<IFileUploadFieldRepository, FileUploadFieldRepository>();
         services.AddVonage();
         var options = builder.Configuration.GetOptions<PostgresOptions>("Postgres");
         //CONNECTIONSTRINGS__DEFAULT=User ID=${POSTGRES_USER};Password=${POSTGRES_PASSWORD};Host=db;Port=5432;Database=${POSTGRES_DB}

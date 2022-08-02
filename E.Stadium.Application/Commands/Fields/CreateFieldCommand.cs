@@ -1,9 +1,8 @@
-﻿using E.Stadium.Abstraction.Data;
-using E.Stadium.Core.Entities.FileUploads;
+﻿using E.Stadium.Abstraction.Commands;
 
-namespace E.Stadium.Core.Entities.Stadiums;
+namespace E.Stadium.Application.Commands.Fields;
 
-public class FieldEntity : IEntity
+public class CreateFieldCommand : ICommand
 {
     public Guid Id { get; set; }
     public Guid StadiumId { get; set; }
@@ -13,8 +12,9 @@ public class FieldEntity : IEntity
     public DateTime? CreatedAt { get; set; }
     public DateTime? UpdatedAt { get; set; }
     public bool IsActive { get; set; }
+    public List<string>? FieldImageUrls { get; set; }
 
-    public FieldEntity(
+    public CreateFieldCommand(
         Guid id,
         Guid stadiumId,
         int numberOfPoeple,
@@ -33,7 +33,4 @@ public class FieldEntity : IEntity
         UpdatedAt = updatedAt;
         IsActive = isActive;
     }
-
-    public StadiumEntity? Stadium { get; set; }
-    public IEnumerable<FieldMediaEntity>? FieldMedias { get; set; }
 }

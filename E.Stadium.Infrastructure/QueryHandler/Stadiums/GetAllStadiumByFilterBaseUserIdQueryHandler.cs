@@ -16,6 +16,6 @@ public class GetAllStadiumByFilterBaseUserIdQueryHandler : IQueryHandler<GetAllS
     }
     public async Task<PagedResult<ResponseStadiumDto>> HandleAsync(GetAllStadiumByFilterBaseUserIdQuery query)
     {
-        return await _stadiumRepository.GetByFilterAsync(query.Filter, query.UserId, query.Page, query.Result);
+        return await _stadiumRepository.GetByFilterAsync(query.Filter, query.UserId, query.Page, query.Results);
     }
 }

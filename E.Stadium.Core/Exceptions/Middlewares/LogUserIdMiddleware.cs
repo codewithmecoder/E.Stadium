@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Serilog.Context;
 
-namespace E.Stadium.Abstraction.Middlewares.Logging;
+namespace E.Stadium.Core.Exceptions.Middlewares;
 
 public class LogUserIdMiddleware
 {
