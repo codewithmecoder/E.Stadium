@@ -71,14 +71,34 @@ public class UserController : BaseController
     [HttpPost("login")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesDefaultResponseType]
-    public async Task<ActionResult> LoginAsync([FromBody] LoginDto dto)
+    public async Task<ActionResult<UserDto>> LoginAsync([FromBody] LoginDto dto)
     {
         if (dto is null)
             return BadRequest();
         var user = await _userService.LoginAsync(dto.Phone, dto.Region, dto.Password);
         var token = new JsonWebToken { AccessToken = user.CreateToken(_tokenProvider, string.Empty) };
         await _userService.StoreToken(user, token.AccessToken, _protector);
-
+        Response.Cookies.Append("Authorization", $"{token.AccessToken}", new CookieOptions
+        {
+            HttpOnly = true
+        });
+        //await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, HttpContext.User);
+        //UserDto userReturn = new()
+        //{
+        //    Id = user.Id.ToString(),
+        //    FirstName = user.FirstName,
+        //    LastName = user.LastName,
+        //    Gender = user.Gender,
+        //    DOB = user.DOB,
+        //    Phone = user.Phone,
+        //    Region = user.Region,
+        //    Email = user.Email,
+        //    Token = user.Token,
+        //    CreatedAt = user.CreatedAt,
+        //    UpdatedAt = user.UpdatedAt,
+        //    IsActive = user.IsActive,
+        //    IsStadiumRental = user.IsStadiumRental,
+        //};
         //var evt = new UserLoggedInEvent(
         //user: user,
         //token: token,
@@ -179,9 +199,14 @@ public class UserController : BaseController
         return Accepted();
     }
 
-    [HttpPost("user/logout")]
+    [HttpPost("logout")]
     public ActionResult Logout()
     {
+        //Append("Authorization", $"{token.AccessToken}", new CookieOptions
+        //{
+        //    HttpOnly = true
+        //});
+        Response.Cookies.Delete("Authorization");
         return Accepted();
     }
 }
