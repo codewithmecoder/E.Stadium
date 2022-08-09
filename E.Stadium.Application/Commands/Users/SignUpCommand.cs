@@ -17,6 +17,7 @@ public class SignUpCommand : ICommand
     public string Region { get; set; }
     public string Phone { get; set; }
     public string Password { get; set; }
+    public string? ImageUrl { get; set; }
 
     public SignUpCommand(
         Guid id,
@@ -26,7 +27,8 @@ public class SignUpCommand : ICommand
         DateTime dOB,
         string region,
         string phone,
-        string password)
+        string password,
+        string? imageUrl)
     {
         Id = id;
         FirstName = firstName;
@@ -36,5 +38,6 @@ public class SignUpCommand : ICommand
         Region = region;
         Phone = phone;
         Password = password;
+        ImageUrl = imageUrl;
     }
 }

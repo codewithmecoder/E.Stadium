@@ -26,6 +26,7 @@ public class UserEntity : IEntity
     public DateTime? UpdatedAt { get; set; }
     public bool IsActive { get; set; }
     public bool? IsStadiumRental { get; set; }
+    public string? ImageUrl { get; set; }
     public UserEntity(
         Guid id,
         string? firstName,
@@ -42,7 +43,8 @@ public class UserEntity : IEntity
         DateTime? createdAt,
         DateTime? updatedAt,
         bool isActive,
-        bool? isStadiumRental)
+        bool? isStadiumRental,
+        string? imageUrl)
     {
         Id = id;
         FirstName = firstName;
@@ -60,6 +62,7 @@ public class UserEntity : IEntity
         UpdatedAt = updatedAt;
         IsActive = isActive;
         IsStadiumRental = isStadiumRental;
+        ImageUrl = imageUrl;
     }
 
     public UserEntity(Guid id)

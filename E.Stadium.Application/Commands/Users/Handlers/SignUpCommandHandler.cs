@@ -40,7 +40,8 @@ public class SignUpCommandHandler : ICommandHandler<SignUpCommand>
             createdAt: DateTime.UtcNow,
             updatedAt: DateTime.UtcNow,
             isActive: true,
-            isStadiumRental: false);
+            isStadiumRental: false,
+            imageUrl: cmd.ImageUrl);
 
         user.SetPassword(user.Password!, _passwordHasher);
         user.ParsePhone(_phoneParser);

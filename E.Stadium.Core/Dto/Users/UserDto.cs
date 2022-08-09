@@ -16,4 +16,5 @@ public class UserDto
     public DateTime? UpdatedAt { get; set; }
     public bool IsActive { get; set; }
     public bool? IsStadiumRental { get; set; }
+    public string? ImageUrl { get; set; }
 }

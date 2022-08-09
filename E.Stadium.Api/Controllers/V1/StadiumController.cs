@@ -51,7 +51,7 @@ namespace E.Stadium.Api.Controllers.V1
             };
             await _command.PerformAsync(cmd);
 
-            return AcceptedWithResource($"stadium/{id}", id.ToString());
+            return OkWithResource(id, $"stadium/{id}", id.ToString());
         }
 
         /// <summary>

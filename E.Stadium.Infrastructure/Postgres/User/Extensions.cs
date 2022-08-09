@@ -21,7 +21,8 @@ public static class Extensions
                 createdAt: x.CreatedAt,
                 updatedAt: x.UpdatedAt,
                 isActive: x.IsActive,
-                isStadiumRental: x.IsStadiumRental == null ? false : x.IsStadiumRental
+                isStadiumRental: x.IsStadiumRental == null ? false : x.IsStadiumRental,
+                imageUrl: x.ImageUrl
             )
         { };
 
@@ -42,7 +43,8 @@ public static class Extensions
                 createdAt: x.CreatedAt,
                 updatedAt: x.UpdatedAt,
                 isActive: x.IsActive,
-                isStadiumRental: x.IsStadiumRental == null ? false : x.IsStadiumRental
+                isStadiumRental: x.IsStadiumRental == null ? false : x.IsStadiumRental,
+                imageUrl: x.ImageUrl
             )
         { };
     public static UserDto AsUserDto(this UserEntity x)
@@ -57,5 +59,10 @@ public static class Extensions
             Phone = x.Phone,
             Region = x.Region,
             FullName = x.GetFullName(),
+            IsActive = x.IsActive,
+            IsStadiumRental = x.IsStadiumRental,
+            CreatedAt = x.CreatedAt,
+            UpdatedAt = x.UpdatedAt,
+            ImageUrl = x.ImageUrl
         };
 }

@@ -16,4 +16,5 @@ public class SignUpDto
     public string Region { get; set; } = string.Empty;
     public string Phone { get; set; } = string.Empty;
     public string Password { get; set; } = string.Empty;
+    public string? ImageUrl { get; set; }
 }

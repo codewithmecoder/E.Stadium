@@ -56,7 +56,8 @@ public class UserController : BaseController
             dOB: dto.DOB,
             region: dto.Region,
             phone: dto.Phone,
-            password: dto.Password);
+            password: dto.Password,
+            imageUrl: dto.ImageUrl);
         await _command.PerformAsync(cmd);
 
         return AcceptedWithResource($"user/{id}", id.ToString());

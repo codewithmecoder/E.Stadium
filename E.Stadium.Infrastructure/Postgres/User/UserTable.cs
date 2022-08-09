@@ -34,7 +34,8 @@ public class UserTable : BasePostgresTable
     public bool IsActive { get; set; }
     [Column("is_stadium_rental")]
     public bool? IsStadiumRental { get; set; }
-
+    [Column("image_url")]
+    public string? ImageUrl { get; set; }
     public UserTable(
         Guid id,
         string? firstName,
@@ -50,7 +51,8 @@ public class UserTable : BasePostgresTable
         DateTime? createdAt,
         DateTime? updatedAt,
         bool isActive,
-        bool? isStadiumRental)
+        bool? isStadiumRental,
+        string? imageUrl)
     {
         Id = id;
         FirstName = firstName;
@@ -67,5 +69,6 @@ public class UserTable : BasePostgresTable
         UpdatedAt = updatedAt;
         IsActive = isActive;
         IsStadiumRental = isStadiumRental;
+        ImageUrl = imageUrl;
     }
 }

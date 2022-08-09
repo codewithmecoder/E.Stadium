@@ -50,8 +50,11 @@ public class UserRepository : IUserRepository
         var tb = await _repository.FirstOrDefaultAsync(id);
         if (tb is null)
             throw new UserNotFoundException(id.ToString());
-        tb.IsStadiumRental = true;
-        await _repository.UpdateAsync(tb);
+        if((tb.IsStadiumRental?? false) == false)
+        {
+            tb.IsStadiumRental = true;
+            await _repository.UpdateAsync(tb);
+        }
     }
 
     public Task SetResetPasswordTokenByUserId(Guid id, string token)
