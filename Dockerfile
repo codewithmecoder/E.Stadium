@@ -1,6 +1,6 @@
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
 WORKDIR /app
-EXPOSE 5588
+EXPOSE 7788
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
@@ -19,6 +19,6 @@ RUN dotnet publish "E.Stadium.Api/E.Stadium.Api.csproj" -c Release -o /app/publi
 
 FROM base AS final
 WORKDIR /app
-ENV ASPNETCORE_URLS=http://*:5588
+ENV ASPNETCORE_URLS=http://*:7788
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "E.Stadium.Api.dll"]
