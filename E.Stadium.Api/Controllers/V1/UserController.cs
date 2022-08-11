@@ -82,7 +82,7 @@ public class UserController : BaseController
         Response.Cookies.Append("Authorization", $"{token.AccessToken}", new CookieOptions
         {
             HttpOnly = true,
-            SameSite = SameSiteMode.Unspecified
+            SameSite = SameSiteMode.None
         });
         //await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, HttpContext.User);
         //UserDto userReturn = new()
