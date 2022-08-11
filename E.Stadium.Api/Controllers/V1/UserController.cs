@@ -81,7 +81,8 @@ public class UserController : BaseController
         await _userService.StoreToken(user, token.AccessToken, _protector);
         Response.Cookies.Append("Authorization", $"{token.AccessToken}", new CookieOptions
         {
-            HttpOnly = true
+            HttpOnly = true,
+            SameSite = SameSiteMode.Unspecified
         });
         //await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, HttpContext.User);
         //UserDto userReturn = new()
