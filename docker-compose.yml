@@ -6,3 +6,4 @@ services:
     image: ${IMAGE_NAME}
     ports:
       - "7788:7788"
+    restart: always
