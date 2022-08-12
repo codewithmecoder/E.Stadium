@@ -81,7 +81,6 @@ public class UserController : BaseController
         await _userService.StoreToken(user, token.AccessToken, _protector);
         Response.Cookies.Append("Authorization", $"{token.AccessToken}", new CookieOptions
         {
-            MaxAge = TimeSpan.FromDays(7),
             HttpOnly = true,
             SameSite = SameSiteMode.None,
             Secure = true
