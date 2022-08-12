@@ -87,7 +87,7 @@ public class UserController : BaseController
             IsEssential = true,
             Path = "/",
             Secure = true,
-            SameSite = SameSiteMode.Strict,
+            SameSite = SameSiteMode.None,
             MaxAge = TimeSpan.MaxValue
 
         });
