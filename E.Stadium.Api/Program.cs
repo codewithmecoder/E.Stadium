@@ -66,7 +66,7 @@ app.UseRouting();
 app.UseCors(x => x
                 .AllowAnyMethod()
                 .AllowAnyHeader()
-                .SetIsOriginAllowed(origin => true) // allow any origin
+                .SetIsOriginAllowed(origin => origin == "https://estadium.org") // allow any origin
                 .AllowCredentials()); // allow credentials
 
 app.UseAuthentication();
