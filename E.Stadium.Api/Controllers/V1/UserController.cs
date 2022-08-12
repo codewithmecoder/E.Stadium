@@ -81,10 +81,15 @@ public class UserController : BaseController
         await _userService.StoreToken(user, token.AccessToken, _protector);
         Response.Cookies.Append("Authorization", $"{token.AccessToken}", new CookieOptions
         {
-            HttpOnly = true,
-            SameSite = SameSiteMode.Unspecified,
-            Secure = true,
-            
+            HttpOnly = false,
+            Domain = "estadium.org",
+            Expires = DateTimeOffset.Now.AddDays(10),
+            IsEssential = true,
+            Path = "/",
+            Secure = false,
+            SameSite = SameSiteMode.Strict,
+            MaxAge = TimeSpan.MaxValue
+
         });
         //await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, HttpContext.User);
         //UserDto userReturn = new()
