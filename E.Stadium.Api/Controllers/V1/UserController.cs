@@ -82,7 +82,7 @@ public class UserController : BaseController
         Response.Cookies.Append("Authorization", $"{token.AccessToken}", new CookieOptions
         {
             HttpOnly = true,
-            Domain = "estadium.org",
+            Domain = "api.estadium.org",
             Expires = DateTimeOffset.Now.AddDays(10),
             IsEssential = true,
             Path = "/",
