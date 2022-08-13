@@ -90,7 +90,7 @@ public class UserController : BaseController
             //IsEssential = true,
             //Path = "/",
             //Secure = true,
-            SameSite = SameSiteMode.None,
+            SameSite = SameSiteMode.Lax,
             MaxAge = TimeSpan.MaxValue
 
         });
