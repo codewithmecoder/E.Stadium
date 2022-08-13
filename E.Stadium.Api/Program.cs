@@ -30,6 +30,7 @@ builder.Services.AddVersionedApiExplorer(setup =>
     setup.GroupNameFormat = "'v'VVV";
     setup.SubstituteApiVersionInUrl = true;
 });
+ILogger logger = builder.Services.BuildServiceProvider().GetRequiredService<ILogger<Program>>();
 builder.Services.AddSwaggerGen();
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(options =>
@@ -50,11 +51,14 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                     OnMessageReceived = context =>
                     {
                         context.Token = context.Request.Cookies["Authorization"];
+                        logger.LogInformation($"context.Token: {context.Token}");
+                        logger.LogInformation($"context.Request.Cookies[\"Authorization\"]: {context.Request.Cookies["Authorization"]}");
                         return Task.CompletedTask;
                     }
                 };
             });
 var app = builder.Build();
+
 AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 var provider = app.Services.GetRequiredService<IApiVersionDescriptionProvider>();
 // Configure the HTTP request pipeline.
