@@ -22,19 +22,22 @@ public class UserController : BaseController
     private readonly IUserService _userService;
     private readonly ITokenProvider<UserEntity> _tokenProvider;
     private readonly IDataProtector _protector;
+    private readonly ILogger<UserController> _logger;
 
     public UserController(
         ICommandDispatcher command,
         IQueryDispatcher query,
         IUserService userService,
         ITokenProvider<UserEntity> tokenProvider,
-        IDataProtector protector)
+        IDataProtector protector,
+        ILogger<UserController> logger)
     {
         _command = command;
         _query = query;
         _userService = userService;
         _tokenProvider = tokenProvider;
         _protector = protector;
+        _logger = logger;
     }
 
     /// <summary>
@@ -131,6 +134,7 @@ public class UserController : BaseController
     {
         var query = new GetUserQuery(UserId);
         var user = await _query.QueryAsync(query);
+        _logger.LogInformation($"Hittttingggggg userrrrrrrrrrr................ {user.FullName}");
         return Ok(user);
     }
 
