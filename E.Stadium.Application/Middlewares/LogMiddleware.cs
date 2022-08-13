@@ -28,6 +28,8 @@ public class LogMiddleware
         //AppSettings.CurrentCulture = string.IsNullOrWhiteSpace(culture) ? "en" : culture;
 
         _logger.LogInformation("Requested from ip: {@IP}, client id: {@ClientId}, user id: {@UserId}", clientIp ?? string.Empty, clientId ?? string.Empty, userId ?? string.Empty);
+        _logger.LogInformation($"Authorization Header: {context.Request.Headers["Authorization"]}");
+        _logger.LogInformation($"Authorization Cookie: {context.Request.Cookies["Authorization"]}");
 
         _ = DateTime.TryParse(context.Request.Headers["X-Local-Time"].ToString(), result: out var local);
         AppSettings.ClientLocalTime = local;
