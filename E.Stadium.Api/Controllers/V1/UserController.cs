@@ -87,9 +87,9 @@ public class UserController : BaseController
             HttpOnly = true,
             //Domain = "estadium.org",
             Expires = DateTimeOffset.Now.AddDays(10),
-            IsEssential = true,
-            Path = "/",
-            Secure = true,
+            //IsEssential = true,
+            //Path = "/",
+            //Secure = true,
             SameSite = SameSiteMode.None,
             MaxAge = TimeSpan.MaxValue
 
