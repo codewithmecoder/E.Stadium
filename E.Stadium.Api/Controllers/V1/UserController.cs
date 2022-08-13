@@ -85,13 +85,13 @@ public class UserController : BaseController
         Response.Cookies.Append("Authorization", $"{token.AccessToken}", new CookieOptions
         {
             HttpOnly = true,
-            //Domain = "estadium.org",
-            Expires = DateTimeOffset.Now.AddDays(10),
-            //IsEssential = true,
-            //Path = "/",
-            //Secure = true,
-            SameSite = SameSiteMode.Lax,
-            MaxAge = TimeSpan.MaxValue
+            ////Domain = "estadium.org",
+            //Expires = DateTimeOffset.Now.AddDays(10),
+            ////IsEssential = true,
+            ////Path = "/",
+            ////Secure = true,
+            //SameSite = SameSiteMode.Lax,
+            //MaxAge = TimeSpan.MaxValue
 
         });
         //await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, HttpContext.User);
